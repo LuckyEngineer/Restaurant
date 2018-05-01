@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <title> - 登录</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link href="__STATIC__/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__STATIC__/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="__STATIC__/css/animate.css" rel="stylesheet">
+    <link href="__STATIC__/css/style.css" rel="stylesheet">
+    <link href="__STATIC__/css/login.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <script>
+        if (window.top !== window.self) {
+            window.top.location = window.location;
+        }
+    </script>
+
+
+    <body class="signin">
+    <div class="signinpanel" >
+        <div class="row" >
+            <div class="col-sm-12">
+                <form method="post" action="{:url('admin/login/login')}">
+                    <h4 class="no-margins">登录：</h4>
+                    <p class="m-t-md">登录到H+后台主题UI框架</p>
+                    <input type="text" class="form-control uname" placeholder="用户名" name="username" style="cursor: pointer;" required="">
+                    <input type="password" class="form-control pword m-b" placeholder="密码" name="password" style="cursor: pointer;" required="">
+
+                    <a href="">忘记密码了？</a>
+                    <img src="{:captcha_src()}" style="width: 143px;height: 33px;" onclick="this.src='{:captcha_src()}?seed='+Math.random()"><br>
+                    <input type="number" class="form-control " placeholder="验证码" name="code" style="cursor: pointer;" required="">
+                    <button class="btn btn-success btn-block">登录</button>
+                </form>
+            </div>
+        </div>
+        <div class="signup-footer">
+            <div class="pull-left">
+                © hAdmin
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+
+
+
+    <!-- 全局js -->
+    <script src="__STATIC__/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__STATIC__/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="__STATIC__/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="__STATIC__/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="__STATIC__/js/plugins/layer/layer.min.js"></script>
+
+    <!-- 自定义js -->
+    <script src="__STATIC__/js/hAdmin.js?v=4.1.0"></script>
+    <script type="text/javascript" src="__STATIC__/js/index.js"></script>
+
+    <!-- 第三方插件 -->
+    <script src="__STATIC__/js/plugins/pace/pace.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>订单详情</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="__STATIC__/css/my/jiesuan.css">
+	<!-- <link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css"> -->
+	<link href="__STATIC__/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+	<script type="text/javascript" src="__STATIC__/js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+	<div class="line1">
+		<div class="line1-left">
+		<a href="{:url('index/product/back')}" style="color: black;">
+			<i class="fa fa-chevron-left"></i>
+</a>
+			<span class="line1-center">订单详情</span>
+		</div>		
+		<div class="line1-right"><img src="__STATIC__/img/jiesuan/1.png"></div>
+		<div style="clear: both;"></div>
+	</div>
+
+	<div class="line2">
+		<!-- <div class="line2-left"><img src="__STATIC__/img/jiesuan/2.png" class="imgs"></div>
+		<div class="line2-center" >顺园饭店</div> -->
+		<div style="display: inline-block;width: 50%;padding-left: 2%;"><img src="__STATIC__/img/uploads/2.png" style="width: 30px;vertical-align: middle;"> 冰爽榴芒</div>
+		<div style="float: right; margin-right: 5%;"><i class="fa fa-angle-right"></i></div>
+		<div style="clear: both;"></div>
+	</div>
+	<div style="clear: both;"></div>
+	<!-- <div class="line3" style="margin-top: 2%;">
+		
+			<img src="__STATIC__/img/jiesuan/3.png" class="line3-left">			
+			<div class="line3-right">			
+				<div class="data-left"></div>
+				<div class="data-right">&yen </div>
+				<div style="clear: both;"></div>
+				<div style="margin-top: 3%;">×1</div>
+			</div>
+			<div style="clear: both;"></div>	
+	</div> -->
+	{foreach $order.order_products as $op}
+	<div class="line3" style="margin-top: 2%;">
+			<img src="__STATIC__/img/uploads/{$op.img}" class="line3-left" style="width: 75px;height: 75px;">			
+			<div class="line3-right">			
+				<div class="data-left">{$op.name}</div>
+				<div class="data-right">&yen {$op.price}</div>
+				<div style="clear: both;"></div>
+				<div style="margin-top: 3%; color: grey;">×{$op.num}</div>
+			</div>
+			<div style="clear: both;"></div>	
+	</div>
+	{/foreach}
+
+	<div class="line4">
+		<div class="line4-left">配送费</div>
+		<div  class="line4-right">&yen 0</div>
+		<div style="clear: both;"></div>
+	</div>
+	<div class="line2">
+		<div  style="position: absolute;left: 2%;top: 10px;"><img src="__STATIC__/img/jiesuan/5.png" class="i1" style="vertical-align: middle;    margin-bottom: 3%;">&nbsp;&nbsp;&nbsp;满减优惠
+			
+		</div>
+		<div style="float: right; margin-right: 4%; width: 50%;"><span style="color: red; float: right; margin-right: 1%;">- &yen; 1</span></div>
+		<!-- <div class="line2-center" >满减优惠</div> -->
+		<!-- <div class="line2-right" style="color: red;">- &yen 1</div> -->
+
+		<div style="clear: both;"></div>
+	</div>
+	<div class="dashed-line" style="margin-top:2%;"></div>
+
+	<div class="line5">		
+		<div class="line5-right"><span style="color: black; ">实付 </span>&yen;{$lprice}</div>
+		<div class="line5-center">优惠&yen;1</div>
+		<div class="line5-left">总计&yen;{$toprice}</div>
+		<div style="clear: both;"></div>
+	</div>
+	<div class="line6">
+		<div class="line6-left"><i class="fa fa-phone"></i></div>
+		<div class="line6-right">联系商家</div>
+		<div style="clear: both;"></div>
+	</div>
+	<div class="line7"></div>
+	<div class="line8">
+		<div class="line8-1">期望时间 <span class="fonts">立即配送</span></div>
+		<div style="clear: both;"></div>
+		<div class="line8-2">配送地址 <span class="fonts"> {$user.username}(先生)</span></div>
+		<div style="clear: both;"></div>
+		<div class="box">
+			<div class="line8-3">嘉应学院-继续教育学院（南门笨笨熊杂货店铺正对</div>
+			<div class="line8-4">面(楼梯在背后),短号627952）</div>
+			<div style="clear: both;"></div>
+		</div>
+		<div class="line8-5">配送服务 <span class="fonts">由商家提供配送服务</span></div>
+		<div class="line7"></div>
+		<div style="position: relative;">
+			<div class="line8-2">订单号码 <span class="fonts">{$order.id}
+				<input type="text" placeholder="复制" style="width: 27px;margin-left:22%;" >
+			
+			</div>
+			<!-- <div class="btn"><input type="text" value="复制" style="width: 27px"></div>
+		</div> -->
+		<div class="line8-2">订单时间 {:date("y-m-d H:i",$order.time)}<span class="fonts"></span></div>
+		<div style="clear: both;"></div>
+		<div class="line8-2">支付方式 <span class="fonts">在线支付</span></div>
+		<div style="clear: both;"></div>
+	</div>
+	<script type="text/javascript">
+
+		</script>
+
+</body>
+</html> 

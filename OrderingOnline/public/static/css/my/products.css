@@ -1,0 +1,273 @@
+html,body{
+	padding: 0;
+	margin: 0;
+}
+.line1{
+	padding-top:10px;
+	position: relative;
+}
+.line1-left{
+	outline: 0;
+    color: gray;
+    width: 58%;
+    margin: 0px 2%;
+    height: 28px;
+    border: 0;
+    padding-left: 23px;
+    border-radius: 15px;
+    font-size: 15px;
+}
+.line1-center{
+	border: 2px solid white;
+	background: transparent;
+	color: white;
+	font-weight: bold;
+	font-size: 12px;
+	padding: 1px 4px;
+}
+
+.line1-right{
+	    vertical-align: middle;
+    height: 24px;
+    margin-left: 1%;
+    float: right;
+    margin-right: 1%;
+    margin-top: 2px;
+}
+
+.head2{
+    margin-top: 8px;
+    border-bottom: 1px solid #bba6a6;
+    padding-bottom: 9px;
+}
+.head2-left img{
+    float: left;
+    width: 50px;
+    margin: 0 2%
+}
+.head2-mid{
+    float: left;
+}
+.slider{
+   
+    
+}
+.head2-right{
+       
+    text-align: center;
+   
+    position: absolute;
+    right: 0px;
+    z-index: 21000;
+    background: #88602d;
+    padding: 0 3%;
+}
+
+
+
+
+
+
+.white-line{
+	width: 95%;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-top: 7%;
+    margin: 0 auto;
+}
+.line3{
+	padding: 2%;
+	font-size: 14px;
+}
+.line3-left{
+	float: left;
+}
+.line3-center{
+	
+	padding-left: 2%;
+	color: white;
+}
+.line3-right{
+	float: right;
+	color: white;
+
+}
+.bbox{
+	background-color: #88602d;
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 21000;
+}
+.btn{
+	background: white;
+    border: 0;
+}
+.line4{
+	width: 100%;
+    padding: 2.3% 0;
+    font-size: 16px;
+    border-bottom: 1px solid rgb(228,228,228);
+    color: #555;
+    position: fixed;
+    left: 0px;
+    z-index: 21000;
+    background: white;
+}
+.line4-left{
+	float: left;
+	width: 33.33%;
+	text-align: center;
+	color: orange;
+	position: relative;
+}
+.line4-center{
+	float: left;
+	width: 33.33%;
+	text-align: center;
+}
+.line4-right{
+	float: left;
+	width: 33.33%;
+	text-align: center;
+}
+.real-right{
+	color: #333;
+	width: 74%;
+	float: right;
+}
+.orange-line{
+	width: 18%;
+    border-bottom: 1px solid orange;
+    position: absolute;
+    top: 133%;
+    right: 41%;
+}
+.left{
+	width: 24%;
+	background-color: rgb(244,244,244);	
+	float: left;
+	color: #333;
+	font-size: 13px;
+	position: fixed;
+    left: 0px;
+}
+.left div{
+	cursor: pointer;
+	padding: 13%; 
+	border-bottom: 1px solid rgb(228,228,228);
+}
+.active{
+	
+	font-weight: bolder;
+	text-align: center;
+	background-color: white;	
+}
+.right{
+	float: left;
+	margin-top: 5%;
+	width: 100%;
+}
+.imgs{
+	float: left;
+	
+	width: 22%;
+	padding: 0 2%;
+}
+.imgs img{
+	width: 100%;
+	height: 61.05px;
+	width: 61.05px;
+}
+.data{
+	float: left;
+	width: 74%;
+}
+.data1{
+	font-weight: bolder;
+	font-size: 16px;
+}
+.data2{
+	margin:4px 0;
+	font-size: 12px;
+	color: gray;
+}
+.data3{
+	font-size: 19px;
+	font-size: 19px;
+    width: 100%;
+    height: 28px;
+    position: relative;
+}
+.d3-right{
+	float: right;
+	margin-right: 4px;
+}
+.foot{
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background: rgba(72, 61, 61, 0.89);
+	color: white;
+}
+.foot>img{
+	width: 16%;
+	float: left;
+	border-radius: 50px;
+	margin-top: -17px;
+	margin-left: 7px;
+}
+.foot>.foot-mid{
+	float: left;
+	margin-left: 10px;
+}
+.foot>.foot-mid>.foot-top{
+	margin-top: 5px;
+}
+.foot>.foot-mid>.foot-top span:first-child{
+	font-size: 23px;
+	margin-right: 5px;
+}
+.foot>.foot-mid>.foot-bottom{
+	color: gray;
+	margin-top: 2px;
+	font-size: 12px;
+}
+.foot>button{
+	float: right;
+	border: 0;
+	background:rgb(255,186,12);
+	font-size: 16px;
+	font-weight: bold;
+	color: #222;
+	padding: 20px 30px; 	
+}
+.right .num{
+	display: none;
+	margin: 0 5px;
+}
+.right .del{
+	color: gray;
+	display: none;
+}
+.right .plus{
+	color: orange;
+	display: inline-block;
+}
+.del button{
+	border:0px;
+	background:transparent;
+	outline: none;
+	color: gray;
+	font-size: 19px;
+	    padding: 0px;
+}
+.plus button{
+	border:0px;
+	background:transparent;
+	outline: none;
+	color: orange;
+	font-size: 19px;
+	    padding: 0px;
+}

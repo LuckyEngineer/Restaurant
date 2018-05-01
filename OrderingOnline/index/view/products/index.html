@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no, width=device-width" name="viewport">
+	<link rel="stylesheet" type="text/css" href="__STATIC__/css/p/qizhong.css">
+	<link rel="stylesheet" type="text/css" href="__STATIC__/fonts/font-awesome-4.7.0\css\font-awesome.min.css">
+	<script type="text/javascript" src="__STATIC__/js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+	<div class="zong">
+		<div class="yihang">
+	<a href="{:url('index/fjsj/index')}" class="ab">
+		<i class="fa fa-chevron-left"  style="margin-left: 2%;color: white;" ></i>
+	</a>
+		<i class="fa fa-search"></i>
+
+
+
+
+		<input name="key" type="text" placeholder="搜索店内商品" class="yihang-left">
+
+
+
+
+		<button class="yihang-center">拼单</button>
+		<img src="__STATIC__/img/upload/1.png" class="yihang-right">
+		<div style="clear: both"></div>
+		</div>	
+
+
+			<div class="erhang">
+	   		<div class="erhang-left">
+				<img src="__STATIC__/img/upload/2.png">
+	   		</div>
+	   		<div class="erhang-who">
+	   			<div style="color: white;margin-top: 5px;">冰爽榴芒</div>
+	   			<i class="fa fa-volume-off" style="color: white;"></i>
+	   			<div class="box" style="height: 20px;width: 240px;float: right;margin-left: 5px;overflow: hidden;color: white;font-size: 14px;">
+	   				<span class="slider">本店入住美团外卖,优惠多多，欢迎订餐...</span>
+	   				<div style="clear: both"></div>
+   				</div>
+	   		</div>
+	   		<a href="{:url('index/login/index')}" class="erhang-right">
+	   			<i class="fa fa-star-o" style="font-size: 27px;color: white;"></i>
+	   			<div style="color: white;">收藏</div>	   		
+	   		</a>
+	   		<div style="clear: both"></div>
+	   	</div>
+
+		<div class="white-line"></div>
+		<div class="sanhang">
+			<div class="sanhang-left"><img src="__STATIC__/img/upload/4.png"></div>
+			<div class="sanhang-center">实际支付35元返2元商家代金券</div>
+			<div class="sanhang-right">4个活动 &gt</div>
+			<div style="clear: both;"></div>
+		</div>
+	</div>
+
+	<div class="sihang">
+		<div class="sihang-left">点菜
+		<div class="orange-line"></div>
+		</div>
+		<div class="sihang-center">评价</div>
+		<div class="sihang-right">商家</div>
+		<div style="clear: both;"></div>
+		<div class="white"></div>
+	</div>
+	<div class="left">
+			
+	</div>
+	<div class="real-right">
+	{foreach $products as $p}
+			<div class="right">
+			<div class="imgs">
+				<img src="__STATIC__/img/upload/{$p.img}">
+			</div>
+			<div class="data">
+				<div class="data1">
+					{$p.name}
+				</div>
+				<div class="data2">
+			月售{$p.selled} 赞{$p.liked}
+				</div>
+				<div class="data3">
+					<div style="float: left;color: #fd4323;">
+						&yen; <span class="price">{$p.price}</span>
+					</div>
+					<div class="d3-right" data-id="{$p.id}">
+						<div class="del" >
+							<button><i class="fa fa-minus-circle"></i></button>
+						</div>
+						<div class="num" >
+						0
+						</div>
+						<div class="plus">
+							<button><i class="fa fa-plus-circle"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div style="clear: both;">
+			</div>
+		</div>
+			{/foreach}
+			</div>
+	
+		
+
+
+		
+
+	<div style="height: 61px; clear: both;"></div>
+	<div class="foot">
+		<img src="__STATIC__/img/upload/logo.jpg">
+		<div class="foot-mid">
+			<div class="foot-top">
+				<span id="price">&yen;0</span>
+				<span id="src-price">&yen;0</span>
+			</div>
+			<div class="foot-bottom">另需配送费&yen;3</div>
+		</div>
+	
+		<a href="{:url('index/dingdan/index')}"> 去结算</a>
+
+		
+	</div>
+
+
+	<script type="text/javascript">
+	function jiesuan(){
+			window.location.href = "#";
+		}
+		var price = 0
+		var src_price = 0  
+
+
+		var data = ''
+
+
+		var product_html = '<div class="right">			<div class="imgs"><img src="[img]"></div>			<div class="data">				<div class="data1">[name]</div>				<div class="data2">月售[selled] 赞[like]</div>				<div class="data3">					<div style="float: left;color: #fd4323;">&yen <span class="price">[price]</span></div>					<div class="d3-right" data-id="[id]">						<div class="del"><button><i class="fa fa-minus-circle" ></i></button>						</div>						<div class="num">[num]</div>						<div class="plus"><button><i class="fa fa-plus-circle"></i></button>						</div>						</div>					</div>			</div>			<div style="clear: both;"></div>			</div>'
+		
+
+		$(function(){ 
+			// 生成左边的菜单
+			var index = 0;
+			{foreach $channel as $channel}
+			if(index==0){
+				$(".left").append("<div class='active'  data-index='{$channel.id}'> {$channel.name}</div>")
+				index++;
+			}else{
+				$(".left").append("<div  data-index='{$channel.id}'> {$channel.name}</div>")
+			}
+			
+			{/foreach}	
+			// 生成第一个菜单的所有产品
+			//adaptProduct(data[0].pro)
+			// 计算一次价格
+			countPrice()
+			$(".left div").click(function(){
+				$(".left div").removeClass("active")
+				$(this).addClass("active")
+
+				// 点击切换产品
+				   
+				// 拿出点击的菜单的所有产品遍历放进去
+				var index = $(this).attr("data-index")
+				// 清空之前的产品
+				// ajax的路径
+				$.post("{:url('index/products/getpro')}",{cid:index},function(data){
+
+						// 将JSON转换为JS
+						data = JSON.parse(data)
+
+						adaptProduct(data)
+				})
+
+			})
+
+			// 写加的点击事件
+			$(document).on("click",".right .plus",function(){
+				var target = $(this).parent().find(".num")
+				var num = parseInt(target.html())
+				if(num==0){
+					$(this).parent().find(".del").css("display","inline-block")
+					target.css("display","inline-block")
+				}
+				target.html(num+1)
+				// 重新计算价格
+				// 拿出当前产品的价格
+				var cur_price = $(this).parent().parent().find(".price").html()
+				cur_price = parseFloat(cur_price)
+				price += cur_price
+				price.toFixed(2);
+				$("#price").html(price.toFixed(2))
+				
+				// data 的那个产品加1
+				var id = $(this).parent().attr("data-id")
+				for(var i in data){
+					var pros = data[i].pro
+					for(var j in pros){
+						if(data[i].pro[j].id == id){
+						 	data[i].pro[j].num++
+						}
+						
+					}
+				}
+
+				var url = "{:url('index/products/pro')}";  
+				var param = {
+					pid:id,	
+					opt:"+"
+				};
+				$.post(url,param,function(data){
+
+				})
+ 
+			})
+
+
+
+ 
+			// 写减的点击事件
+			$(document).on("click",".right .del",function(){
+				var target = $(this).parent().find(".num")
+				var num = parseInt(target.html())
+				num--
+				target.html(num)
+				if(num==0){
+					$(this).parent().find(".del").css("display","none")
+				target.css("display","none")
+				}
+				
+				// 重新计算价格
+				// 拿到当前产品的价格
+				var cur_price = $(this).parent().parent().find(".price").html()
+				cur_price = parseFloat(cur_price)
+				price -= cur_price
+				price = price.toFixed(2)
+				price = parseFloat(price)
+				
+				$("#price").html(price)
+
+				// data 的那个产品减1
+				var id = $(this).parent().attr("data-id")
+				for(var i in data){
+					var pros = data[i].pro
+					for(var j in pros){
+						if(data[i].pro[j].id == id){
+							data[i].pro[j].num--
+						}
+						
+					}
+				}	
+				var url = "{:url('index/products/pro')}";  
+				var param = {
+					pid:id,	
+					opt:"-"
+				};
+				$.post(url,param,function(data){
+					
+				})
+			})
+
+		})
+ 
+
+
+
+
+
+
+
+
+		function adaptProduct(pros){
+			// console.log(pros)
+			$(".real-right").html('')
+			for(var i in pros){
+				var pro =pros[i]
+				var tp1 = product_html
+				tp1 = tp1.replace('[name]',pro.name)
+				tp1 = tp1.replace('[price]',pro.price)
+				tp1 = tp1.replace('[selled]',pro.selled)
+				tp1 = tp1.replace('[like]',pro.liked)
+				tp1 = tp1.replace('[img]',"__STATIC__/img/upload/"+pro.img)
+				tp1 = tp1.replace('[id]',pro.id)
+				if(!pro.num){
+					pro.num = 0
+				}
+				tp1 = tp1.replace('[num]',pro.num)
+				$(".real-right").append(tp1)
+				if(pro.num>0){
+					// 显示当前的减号 和 数量
+					$(".real-right .right:last-child").find(".num").css("display","inline-block")
+					$(".real-right .right:last-child").find(".del").css("display","inline-block")
+				}
+				
+			}
+		}
+		function countPrice(){
+			for (var i = 0; i < data.length; i++){
+				for(j=0;j<data[i].pro.length;j++){
+					var pro = data[i].pro[j]
+					if(!pro.num){
+						pro.num = 0
+					} 
+					price += pro.price * pro.num 
+				}
+			}
+			$("#price").html(price.toFixed(2))
+		}
+
+		function a(){
+			$(".slider").css("margin-left","240px")
+			$(".slider").animate({
+				"margin-left":"-250px"
+			},10000,a)
+		}
+		$(function(){
+			a()
+		})
+
+		
+		
+
+	</script>
+</body>
+</html>

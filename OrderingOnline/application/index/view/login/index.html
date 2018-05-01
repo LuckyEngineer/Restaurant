@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>手机登录</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no, width=device-width">
+	<style type="text/css">
+		html,body{
+			margin: 0;
+			padding: 0;
+		}
+		.logo{
+			width: 160px;
+			margin: 0 auto;
+			display: block;
+		    margin-top: 70px;
+	        margin-bottom: 70px;
+	        border-radius: 50px;
+		}
+		.inp{
+	        display: block;
+		    width: 90%;
+		    margin: 0 auto;
+		    height: 35px;
+		    padding-left: 10px;
+	        border-radius: 3px;
+    		border: 1px solid #b1afaf;
+    		-webkit-appearance: none;
+    		cursor: pointer;
+		}
+		.btn{
+			width: 93%;
+		    margin: 0 auto;
+		    display: block;
+		    margin-top: 40px;
+		    margin-bottom: 10px;
+		    height: 40px;
+		    background-color: rgb(233,150,1);
+		    color: white;
+		    border: 0;
+		    border-radius: 3px;
+		    -webkit-appearance: none;
+		    cursor: pointer;
+		}
+		.text-left{
+			margin-left: 4%;
+			text-decoration: none;
+		    color: #e98201;
+    		font-size: 14px;
+		}
+		.text-right{
+		    float: right;
+    		margin-right: 4%;
+    		text-decoration: none;
+		    color: #e98201;
+    		font-size: 14px;
+		}
+		.text-center{
+			display: block;
+    		text-align: center;
+    		    margin-top: 25px;
+    		    font-size: 14px;
+		}
+		.login-box{
+			float: left;
+		    width: 33.33%;
+		}
+		.login-box img{
+	        width: 60%;
+		}
+		.login-box span{
+			font-size: 12px;
+			display: block;
+		}
+		.login-container{
+		    text-align: center;
+		    width: 68%;
+		    margin: 0 auto;
+		    margin-top: 50px;
+		}
+	</style>
+</head>
+<body>
+<!--
+	怎么让php处理登录的逻辑
+	怎么让php接收参数
+-->
+	<img src="__STATIC__/img/t/logo.jpg" class="logo">
+	<form action="{:url('index/login/login')}" method="post">
+		<input name="tel" type="text" placeholder="手机号/邮箱" class="inp" style="border-bottom-left-radius: 0;border-bottom-right-radius: 0; border-bottom: 0;" required="">
+		<input name="password" type="password" placeholder="登录密码" class="inp" style="border-top-left-radius: 0;border-top-right-radius: 0;" required="">
+		<input type="submit" value="登录" class="btn">
+
+	</form>
+	<form action="{:url('index/zhuche/index')}" method="post">
+		<input type="submit" value="注册" class="btn" style="margin-top: 0;">
+	</form>
+	<a href="" class="text-left">通过手机验证码登录</a>
+	<a href="" class="text-right">忘记密码?</a>
+	<span class="text-center">或用其它方式快速登录</span>
+	<div class="login-container">
+		<div class="login-box">
+			<img src="__STATIC__/img/t/wechat.png">
+			<span>微信登录</span>
+		</div>
+
+		<div class="login-box">
+			<img src="__STATIC__/img/t/qq.jpg">
+			<span>QQ登录</span>
+		</div>
+
+		<div class="login-box">
+			<img src="__STATIC__/img/t/weibo.png">
+			<span>微博登录</span>
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+</body>
+</html>

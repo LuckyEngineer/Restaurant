@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="__STATIC__/css/my/products.css">
+	<!-- <link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/__STATIC__/css/font-awesome.min.css"> -->
+	<link href="__STATIC__/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+	<script type="text/javascript" src="__STATIC__/js/jquery-3.2.1.min.js"></script>
+	
+</head>
+<body>
+	<div class="bbox">
+		<div class="line1">
+		<i class="fa fa-chevron-left" style="margin-left: 2%;color: white;" onclick="return fanghui()"></i>
+			<!-- <form action="{:url('admin/products/search')}" method="get"> -->
+				<i class="fa fa-search" style="position:absolute;left: 42px;top:18px; color: gray;font-size: 14px;"></i>
+				<input type="text" placeholder=" 搜索店内商品" class="line1-left">
+			<!-- </form> -->
+		<button class="line1-center">拼单</button>
+
+		<img src="__STATIC__/img/uploads/1.png" class="line1-right">
+		<div style="clear: both"></div>
+		</div>
+		<div class="head2">
+	   		<div class="head2-left">
+				<img src="__STATIC__/img/uploads/2.png">
+	   		</div>
+	   		<div class="head2-mid">
+	   			<div style="color: white;margin-top: 5px;">冰爽榴芒</div>
+	   			<i class="fa fa-volume-off" style="color: white;"></i>
+	   			<div  style="height: 18px;width: 240px;float: right;margin-left: 5px;overflow: hidden;color:white; font-size: 15px;">
+	   				<span class="slider">本店入住美团外卖，优惠多多，欢迎订餐...</span>
+   				</div>
+	   		</div>
+	   		<div class="head2-right">
+
+	   			<i class="fa fa-star-o"  id="star" style="font-size: 27px;color: white;" onclick="return stars()"></i>
+	   			
+	   			<div style="color: white;">收藏</div>	   		
+	   		</div>
+	   		<div style="clear: both"></div>
+	   	</div>
+			
+
+		<div class="white-line"></div>
+
+	
+
+
+		<div class="line3" >
+			<div class="line3-left">
+				<img src="__STATIC__/img/uploads/4.png" style="vertical-align: middle;"> 
+				<span style="color: #f7f7f7;">实际支付35元返2元商家代金券</span>
+			</div>
+
+			
+
+			
+			<div class="line3-right">4个活动 &gt</div>
+			<div style="clear: both;"></div>
+		</div>
+	</div>
+	<div style="height: 145px;"></div>
+
+	<div class="line4">
+		<div class="line4-left">点菜
+		<div class="orange-line"></div>
+		</div>
+		<div class="line4-center">评价</div>
+		<div class="line4-right">商家</div>
+		<div style="clear: both;"></div>
+		<div class="white"></div>
+	</div>
+	<div style="height: 37px;"></div>
+
+	<div class="left">
+			
+	</div>
+	<div class="real-right">
+	</div>
+	
+		
+	
+	
+
+	<div style="height: 61px; clear: both;"></div>
+	<div class="foot">
+		<img src="__STATIC__/img/uploads/logo.jpg">
+		<div class="foot-mid">
+			<div class="foot-top">
+				<span id="price">￥{$totle_price}</span>
+				<span id="src-price">&yen;0</span>
+			</div>
+			<div class="foot-bottom">另需配送费&yen;0</div>
+		</div>
+		<button onclick="return jiesuan()">去结算</button>
+	</div>
+
+	<script type="text/javascript">
+		function jiesuan(){
+			window.location.href = "{:url('index/product/jiesuan')}";
+		}
+		var price = 0
+		var src_price = 0
+
+		var data = ''
+		
+
+
+
+
+		function fanghui(){
+			window.location.href = "{:url('index/product/shop')}";
+		}
+		function stars(){
+		var i = $('#star').attr("class");
+		if(i == "fa fa-star-o"){
+			$('#star').removeClass("fa fa-star-o");
+			$('#star').addClass("fa fa-star");
+		}else{
+			$('#star').removeClass("fa fa-star");
+			$('#star').addClass("fa fa-star-o");
+		}
+	}
+	
+
+	
+		
+		var product_html = '<div class="right">			<div class="imgs"><img src="[img]"></div>			<div class="data">				<div class="data1">[name]</div>				<div class="data2">月售[selled] 赞[like]</div>				<div class="data3">					<div style="float: left;color: #fd4323;">&yen <span class="price">[price]</span></div>					<div class="d3-right" data-id="[id]">						<div class="del"><button><i class="fa fa-minus-circle" ></i></button>						</div>						<div class="num">[num]</div>						<div class="plus"><button><i class="fa fa-plus-circle"></button></i>						</div>						</div>					</div>			</div>			<div style="clear: both;"></div>			</div>'
+		
+			$(function(){ 
+			// 生成左边的菜单
+			var index = 0;
+			{foreach $channel as $channel}
+				if(index==0){
+					$(".left").append("<div class='active'  data-index='{$channel.id}'> {$channel.name}</div>")
+					index++;
+				}
+				else{
+					$(".left").append("<div data-index='{$channel.id}'> {$channel.name}</div>")
+				}
+			
+			{/foreach}
+
+			countPrice()
+			$(".left div").click(function(){
+				$(".left div").removeClass("active")
+				$(this).addClass("active")
+
+				// 点击切换产品
+				   
+				// 拿出点击的菜单的所有产品遍历放进去
+				var index = $(this).attr("data-index")
+				// 清空之前的产品
+				// ajax的路径
+				$.post("{:url('index/product/getpro')}",{cid:index},function(data){
+
+						// 将JSON转换为JS
+						// data = JSON.parse(data)
+						// console.log(data)
+						adaptProduct(data)
+				})
+
+
+			})
+
+			// 写加的点击事件
+			$(document).on("click",".right .plus",function(){
+				var target = $(this).parent().find(".num")
+				var num = parseInt(target.html())
+				if(num==0){
+					$(this).parent().find(".del").css("display","inline-block")
+					target.css("display","inline-block")
+				}
+				target.html(num+1)
+				// 重新计算价格
+				// 拿出当前产品的价格
+				var cur_price = $(this).parent().parent().find(".price").html()
+				
+				cur_price = parseFloat(cur_price)
+
+
+				var totle_price = $('#price').html()
+   				// console.log(totle_price)
+				totle_price=totle_price.replace('￥','')
+				// console.log(totle_price)
+				totle_price = parseFloat(totle_price)
+				totle_price=totle_price+cur_price
+				price += cur_price
+				 $('#price').html('￥'+totle_price.toFixed(2))
+			
+				
+				
+				
+				
+				// var totle_price = $("#price").html()
+    //             totle_price = totle_price.replace("￥","")
+    //             totle_price = parseFloat(totle_price)
+
+
+    //             totle_price = totle_price + cur_price
+    //             $("#price").html("￥"+totle_price)
+				
+				// data 的那个产品加1
+				var id = $(this).parent().attr("data-id")
+
+				for(var i in data){
+					var pros = data[i].pro
+					for(var j in pros){
+						if(data[i].pro[j].id == id){
+						 	data[i].pro[j].num++
+						}
+						
+					}
+				}
+
+				var url = "{:url('index/product/pro')}";  
+				var param = {
+					pid:id,	
+					opt:"+"
+				};
+				$.post(url,param,function(data){
+					// console.log(data);
+				})
+ 
+			})
+
+
+
+ 
+			// 写减的点击事件
+			$(document).on("click",".right .del",function(){
+				var target = $(this).parent().find(".num")
+				var num = parseInt(target.html())
+				num--
+				target.html(num)
+				if(num==0){
+					$(this).parent().find(".del").css("display","none")
+				target.css("display","none")
+				}
+				
+				// 重新计算价格
+				// 拿到当前产品的价格
+				var cur_price = $(this).parent().parent().find(".price").html()
+				cur_price = parseFloat(cur_price)
+				var totle_price = $("#price").html()
+                totle_price = totle_price.replace("￥","")
+                totle_price = parseFloat(totle_price)
+
+
+                totle_price = totle_price - cur_price
+                $("#price").html("￥"+totle_price.toFixed(2))
+
+				// data 的那个产品减1
+				var id = $(this).parent().attr("data-id")
+				for(var i in data){
+					var pros = data[i].pro
+					for(var j in pros){
+						if(data[i].pro[j].id == id){
+							data[i].pro[j].num--
+						}
+						
+					}
+				}	
+				var url = "{:url('index/product/pro')}";  
+				var param = {
+					pid:id,	
+					opt:"-"
+				};
+				$.post(url,param,function(data){
+					
+				})
+			})
+
+			$(".left div:first-child").click();
+
+		})
+ 
+
+
+
+
+
+
+
+
+		function adaptProduct(pros){
+			// console.log(pros)
+			$(".real-right").html('')
+			for(var i in pros){
+				var pro =pros[i] 
+				// console.log(pro)
+				var tp1 = product_html
+				tp1 = tp1.replace('[name]',pro.name)
+				tp1 = tp1.replace('[price]',pro.price)
+				tp1 = tp1.replace('[selled]',pro.selled)
+				tp1 = tp1.replace('[like]',pro.liked)
+				tp1 = tp1.replace('[img]',"__STATIC__/img/uploads/"+pro.img)
+				tp1 = tp1.replace('[id]',pro.id)
+				if(!pro.num){
+					pro.num = 0
+				}
+				tp1 = tp1.replace('[num]',pro.num)
+				$(".real-right").append(tp1)
+				if(pro.num>0){
+					// 显示当前的减号 和 数量
+					$(".real-right .right:last-child").find(".num").css("display","inline-block")
+					$(".real-right .right:last-child").find(".del").css("display","inline-block")
+				}
+				
+			}
+		}
+		function countPrice(){
+			// for (var i = 0; i < data.length; i++){
+			// 	for(j=0;j<data[i].pro.length;j++){
+			// 		var pro = data[i].pro[j]
+			// 		if(!pro.num){
+			// 			pro.num = 0
+			// 		} 
+			// 		price += pro.price * pro.num 
+			// 	}
+			// }
+			// $("#price").html(price.toFixed(2))
+		}
+
+		function a(){
+			$(".slider").css("margin-left","240px")
+			$(".slider").animate({
+				"margin-left":"-280px"
+			},10000,a)
+		}
+		$(function(){
+			a()
+		})
+
+		
+		
+
+	</script>
+</body>
+</html>

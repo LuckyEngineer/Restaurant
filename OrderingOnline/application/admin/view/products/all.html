@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title> hAdmin- 主页</title>
+
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="__STATIC__/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="__STATIC__/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="__STATIC__/css/animate.css" rel="stylesheet">
+    <link href="__STATIC__/css/style.css?v=4.1.0" rel="stylesheet">
+	<style type="text/css">
+	.ibox{
+		width: 90%;
+		margin: 0 auto;
+		margin-top: 30px;
+	}
+	.mform{
+		width: 90%;
+		margin: 0 auto;
+		margin-top: 20px;
+	}
+
+
+	</style>
+
+<link rel="stylesheet" href="http://127.0.0.1/mt/admin/js/plugins/layer/skin/layer.css" id="layui_layer_skinlayercss" style=""></head>
+<body class="mini-navbar">
+	<form class="mform" action="{:url('admin/products/search')}" method="get">
+		<div class="input-group">
+	        <input name="key" type="text" placeholder="请输入产品名称" class="input-sm form-control"> <span class="input-group-btn">
+	            <button type="submit" class="btn btn-sm btn-primary"> 搜索</button> </span>
+	    </div>
+	</form>
+	<div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>基本信息 第{$page}页</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="table_basic.html#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="table_basic.html#">选项1</a>
+                                </li>
+                                <li><a href="table_basic.html#">选项2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>产品栏目</th>
+                                    <th>图像</th>
+                                    <th>产品名</th>
+                                    <th>价格</th>
+                                    <th>销量</th>
+                                    <th>点赞数</th>
+                                    <td>操作</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {foreach $pro as $pro}
+                                <tr>
+                                
+                                    <td>{$pro.cid}</td>
+                                    <td>{$pro.cname}</td>
+                                    <td><img style="width: 56px;height: 56px;" src="__STATIC__/img/uploads/{$pro.img}"></td>
+                                    <td>{$pro.name}</td>
+                                    <td>{$pro.price}</td>
+                                    <td>{$pro.selled}</td>
+                                    <td>{$pro.liked}</td>
+                                    <td><a href="{:url('admin/products/del')}?id={$pro.id}" class="btn btn-primary " type="button"><i class="fa fa-close "></i>&nbsp;删除</a>
+                                    </td>
+                                   
+                                </tr>
+                                 {/foreach}
+                                
+                                      
+                                
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div class="ibox-content">
+                        <div class="text-center">
+                            <a href="{:url('admin/products/all')}?page={$page-1}" type="button" class="btn btn-white"><i class="fa fa-chevron-left"></i>
+	                        </a>
+                            <span>{$page}</span>                            
+	                        <a href="{:url('admin/products/all')}?page={$page+1}" type="button" class="btn btn-white"><i class="fa fa-chevron-right"></i>
+	                        </a>
+                        </div>
+                    </div>
+
+                  
+	                   
+    </div>
+
+
+   
+           
+	<!-- 全局js -->
+    <script src="__STATIC__/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__STATIC__/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="__STATIC__/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="__STATIC__/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="__STATIC__/js/plugins/layer/layer.min.js"></script>
+
+    <!-- 自定义js -->
+    <script src="__STATIC__/js/hAdmin.js?v=4.1.0"></script>
+    <script type="text/javascript" src="__STATIC__/js/index.js"></script>
+
+    <!-- 第三方插件 -->
+    <script src="__STATIC__/js/plugins/pace/pace.min.js"></script>
+</body>
+</html>

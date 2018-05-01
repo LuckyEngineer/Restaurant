@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title> - 注册</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="__STATIC__/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="__STATIC__/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="__STATIC__/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="__STATIC__/css/animate.css" rel="stylesheet">
+    <link href="__STATIC__/css/style.css?v=4.1.0" rel="stylesheet">
+    <script>if(window.top !== window.self){ window.top.location = window.location;}</script>
+
+</head>
+<body class="gray-bg">
+
+    <div class="middle-box text-center loginscreen   animated fadeInDown">
+        <div>
+            <div>
+
+               <!--  <h1 class="logo-name"></h1> -->
+               <img src="__STATIC__/img/t/logo.jpg"  style="border-radius: 180px;margin-bottom: 8px;">
+
+            </div>
+            <h3>欢迎注册</h3>
+            <p>创建一个订餐系统的新账户</p>
+            <form class="m-t" role="form" action="{:url('index/zhuche/zhuche')}" method="post">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="请输入手机号" required="" name="tel">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="请输入密码" required="" name="password1">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="请再次输入密码" required="" name="password2">
+                </div>
+                <div class="form-group text-left">
+                    <div class="checkbox i-checks">
+                        <label class="no-padding">
+                            <div class="icheckbox_square-green checked" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div><i></i> 我同意注册协议</label>
+                    </div>
+                </div>
+                <a href="{:url('index/zhuche/inuser')}">
+                    <button type="submit" class="btn  block full-width m-b" style="background-color: rgb(36,196,170);color: white;">注 册</button>
+                </a>
+
+                <p class="text-muted text-center"><small>已经有账户了？</small><a href="{:url('index/login/index')}" style="color:rgb(36,196,170); ">点此登录</a>
+                </p>
+
+            </form>
+        </div>
+    </div>
+
+   
+
+
+     <!-- 全局js -->
+    <script src="__STATIC__/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__STATIC__/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="__STATIC__/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="__STATIC__/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="__STATIC__/js/plugins/layer/layer.min.js"></script>
+
+    <!-- 自定义js -->
+    <script src="__STATIC__/js/hAdmin.js?v=4.1.0"></script>
+    <script type="text/javascript" src="__STATIC__/js/index.js"></script>
+
+    <!-- 第三方插件 -->
+    <!-- <script src="__STATIC__/js/plugins/pace/pace.min.js"></script> -->
+    <!-- <script>
+        $(document).ready(function () {
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+        });
+    </script> -->
+    </body>
+</html>
+    

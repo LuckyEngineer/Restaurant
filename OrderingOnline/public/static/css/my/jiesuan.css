@@ -1,0 +1,175 @@
+html,body{
+	padding:0;
+	margin: 0;
+}
+.line1{
+	position: relative;
+    height: 37px;
+    background-color: #fafafa;
+}
+.line1-left{
+	float:left;	
+	padding-top: 2%;
+    padding-left: 5%;	   
+}
+.line1-center{
+	position: absolute;
+	left: 41%;
+	top: 25%;
+	font-size: 18px;
+	font-weight:bolder;
+}
+.line1-right{
+	float: right;
+    margin-top: 6px;
+    position: absolute;
+    right: 2%;
+}
+.line2{
+	padding-top: 3%;
+	position: relative;
+}
+.line2-left{
+	float: left;
+    position: absolute;
+    left: 2%;
+    top: 88%;
+}
+/*.imgs{
+	width: 20px;
+}*/
+/*.line2-center{
+	float: left;
+    position: absolute;
+    left: 13%;
+}*/
+/*.line2-right{
+	float: right;
+    position: absolute;
+    right: 4%;
+    top: 87%;
+}*/
+.line3{
+	margin-top: 5%;
+    background-color: #fafafa;
+}
+.line3-left{
+	float: left;
+    width: 20%;
+    padding: 2%;
+
+}
+.line3-right{
+	float: left;
+    width: 70%;
+    padding: 2% 3%;
+}
+.data-left{
+	float: left;
+}
+.data-right{
+	float: right;
+}
+.line4{
+	border-bottom: 1px dashed #cccccc;
+}
+.line4-left{
+	float: left;
+	padding: 4%;
+}
+.line4-right{
+	float: right;
+	padding: 4%;
+}
+.dashed-line{
+	width: 100%;
+    border-bottom: 1px dashed #cccccc;
+    margin-top: 7%;
+}
+.line5{
+	margin-top: 2%;
+    padding-bottom: 2%;
+    border-bottom: 1px dashed #cccccc;
+
+}
+.line5-left{
+	float: right;
+	padding-right: 4%;
+	color: gray;
+}
+.line5-center{
+	float: right;
+	padding-right: 4%;
+	color: gray;
+}
+.line5-right{
+	float: right;
+    padding-right: 4%;
+    color: red;
+    font-weight: bolder;
+}
+.line6{
+	position: relative;
+    font-size: 18px;
+    margin-top: 3%;
+
+}
+.line6-left{
+	float: left;
+    position: absolute;
+    left: 37%;
+}
+.line6-right{
+	float: left;
+    position: absolute;
+    left: 45%;
+    font-weight:bolder;
+}
+.line7{
+	height: 8px;
+    margin-top: 39px;
+    background-color: #fafafa;
+}
+.line8{
+	font-size: 13px;
+}
+.line8-1{
+	float: left;
+	padding: 3%;
+}
+.line8-2{
+	/*float: left;*/
+    padding-left: 3%;
+	margin-top: 2%;
+	color: gray;
+}
+.box{
+	padding-left: 69px;
+    padding-top: 5px;
+    position:relative;
+}
+.line8-3{
+	float:left;
+	font-weight: bolder;
+}
+.line8-4{
+	float:left;
+	font-weight: bolder;
+}
+.line8-5{
+	float: left;
+	padding: 3%;
+}
+.btn{
+	position: absolute;
+    right: 2px;
+    top: 6px;
+    width: 41px;
+}
+.fonts{
+	font-weight: bolder;
+	color: black;
+}
+.i1{
+	width: 20px;	
+}
